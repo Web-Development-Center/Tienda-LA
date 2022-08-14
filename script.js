@@ -295,4 +295,3 @@ function mostrarProductos(productos){
   })
 }
 
-console.log("Practicando con GIT hub")
