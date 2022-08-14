@@ -294,3 +294,5 @@ function mostrarProductos(productos){
       contenedorDiv.appendChild(productoActual)
   })
 }
+
+console.log("Practicando con GIT hub")
