@@ -1,0 +1,165 @@
+body{
+  background-color: #A8A8A8;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.container{
+  /*border:1px solid white;*/
+  width: 600px;
+  height: 410px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex; 
+}
+.backbox{  
+  background-color: #404040;
+  width: 150%;
+  height: 90%;
+  position: absolute;
+  transform: translate(0,-50%);
+  top:50%;
+  display: inline-flex;
+  width: 600px;
+}
+
+.frontbox{
+  background-color: white;
+  border-radius: 20px;
+  height: 110%;
+  width: 60%;
+  z-index: 10;
+  position: absolute;
+  right:0;
+  margin-right: -12%;
+  margin-left: 3%;
+  transition: right .8s ease-in-out;
+}
+
+.moving{
+  right:65%;
+}
+
+.loginMsg, .signupMsg{
+  width: 50%;
+  height: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+.loginMsg .title,
+.signupMsg .title{
+  font-weight: 300;
+  font-size: 23px;
+}
+
+.loginMsg p,
+.signupMsg p {
+  font-weight: 100;
+}
+
+.textcontent{
+  color:white;
+  margin-top:65px;
+  margin-left: 12%;
+}
+
+.loginMsg button,
+.signupMsg button {
+  background-color: #404040;
+  border: 2px solid white;
+  border-radius: 10px;
+  color:white;
+  font-size: 12px;
+  box-sizing: content-box;
+  font-weight: 300;
+  padding:10px;
+  margin-top: 20px;
+}
+
+/* front box content*/
+.login, .signup{
+  padding: 20px;
+  text-align: center;
+}
+
+.login h2,
+.signup h2 {
+  color: #3786fc;
+  font-size:22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.inputbox{
+  margin-top:20px;
+}
+
+.login input, 
+.signup input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  background-color: #f2f2f2;
+  border: none;
+  margin-bottom:20px;
+  font-size: 12px;
+  border-radius: 5px;
+  
+}
+
+.login button,
+.signup button{
+  background-color: #1b63e9;
+  border: none;
+  color:white;
+  font-size: 12px;
+  font-weight: 300;
+  padding:10px;
+  border-radius: 10px;
+  width: 100%;
+  right:30px;
+  margin-top: 5px;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.login button:hover,
+.signup button:hover{
+  background-color: rgb(17, 84, 185);
+  transition: .3s;
+}
+
+/* Fade In & Out*/
+.login p {
+  cursor: pointer;
+  color:#1b63e9;
+  font-size:15px;
+  text-align: left;
+}
+
+.loginMsg, .signupMsg{
+  /*opacity: 1;*/
+  transition: opacity .8s ease-in-out;
+}
+
+.visibility{
+  opacity: 0;
+}
+
+.hide{
+  display: none;
+}
+
+.buttons{
+  cursor: pointer;
+}
+
+.buttons:hover{
+  background-color: #1b63e9;
+  transition: .3s;
+}
