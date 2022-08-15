@@ -3,7 +3,7 @@ document.getElementById('form').addEventListener('submit', function(evento){
 })
 
 // Make a request for a user with a given ID
-axios.get('http://10.10.40.145:3000/login')
+axios.get('http://localhost:3000:3000/login')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -25,5 +25,5 @@ btnIniciarSesion.addEventListener("click", function(evento){
     contraseña_login: contraseña_login
   }
   
-  axios.post('http://10.10.40.145:3000/login', login)
+  axios.post('http://localhost:3000:3000/login', login)
 })
