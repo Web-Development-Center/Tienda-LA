@@ -188,6 +188,15 @@
 /*======================================
 	01. Header CSS
 ========================================*/
+/* Login */
+.visible-login{
+	visibility: visible;
+}
+
+.invisible-login{
+	visibility: hidden;
+}
+
 /* Topbar */
 .topbar {
 	background-color: #fff;

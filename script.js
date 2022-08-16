@@ -294,4 +294,3 @@ function mostrarProductos(productos){
       contenedorDiv.appendChild(productoActual)
   })
 }
-

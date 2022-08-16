@@ -25,5 +25,15 @@ btnIniciarSesion.addEventListener("click", function(evento){
     contraseña_login: contraseña_login
   }
   
-  axios.post('http://localhost:3000/login', login)
+  axios.post('http://localhost:3000/login', login).then(function (response) {
+    // handle success
+    if(response.data.status){
+      location.href="http://localhost:5500/index.html"
+    }
+    console.log(response)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
 })
