@@ -3,10 +3,15 @@ document.getElementById('form2').addEventListener('submit', function(evento){
 })
 
 // Make a request for a user with a given ID
+<<<<<<< HEAD
 axios.get('http://localhost:3000/register')
+=======
+axios.get('http://localhost:3000:3000/register')
+>>>>>>> 3332d1a503b18bdbdb0d29447a0494841034584f
   .then(function (response) {
     // handle success
     console.log(response);
+    
   })
   .catch(function (error) {
     // handle error
@@ -30,6 +35,10 @@ btnRegistrarse.addEventListener("click", function(evento){
     confirmar_contraseña: confirmar_contraseña
   }
 
+<<<<<<< HEAD
   axios.post('http://localhost:3000/register', registro)
+=======
+  axios.post('http://localhost:3000:3000/register', registro)
+>>>>>>> 3332d1a503b18bdbdb0d29447a0494841034584f
     
 })
