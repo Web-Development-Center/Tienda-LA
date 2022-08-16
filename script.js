@@ -246,7 +246,7 @@ function roomImg(obj){
   });    
 }
 
-axios.get('http://10.10.40.145:3000/products')
+axios.get('http://localhost:3000/products')
   .then(function (response) {
     // handle success
     mostrarProductos(response.data)

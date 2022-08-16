@@ -1,4 +1,4 @@
-axios.get('http://10.10.40.145:3000/Checkout')
+axios.get('http://localhost:3000/Checkout')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -27,6 +27,6 @@ btnGuardar.addEventListener("click", function(evento){
     referencias: address
   }
 
-  axios.post('http://10.10.40.145:3000/Checkout', checkout)
+  axios.post('http://localhost:3000/Checkout', checkout)
     
 })
