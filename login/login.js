@@ -3,11 +3,7 @@ document.getElementById('form').addEventListener('submit', function(evento){
 })
 
 // Make a request for a user with a given ID
-<<<<<<< HEAD
 axios.get('http://localhost:3000/login')
-=======
-axios.get('http://localhost:3000:3000/login')
->>>>>>> 3332d1a503b18bdbdb0d29447a0494841034584f
   .then(function (response) {
     // handle success
     console.log(response);
@@ -29,9 +25,5 @@ btnIniciarSesion.addEventListener("click", function(evento){
     contraseña_login: contraseña_login
   }
   
-<<<<<<< HEAD
   axios.post('http://localhost:3000/login', login)
-=======
-  axios.post('http://localhost:3000:3000/login', login)
->>>>>>> 3332d1a503b18bdbdb0d29447a0494841034584f
 })
