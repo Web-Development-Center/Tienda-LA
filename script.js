@@ -269,7 +269,7 @@ function mostrarProductos(productos){
 													<div class="single-product">
 														<div class="product-img">
 															<a href="product-details.html">
-																<img class="default-img" src="${prod.images}" alt="#">
+																<img class="default-img" src="http://localhost:3000/uploadFoto/${prod.imagen}" alt="#">
 															</a>
 															<div class="button-head">
 																<div class="product-action">

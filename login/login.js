@@ -29,8 +29,18 @@ btnIniciarSesion.addEventListener("click", function(evento){
     // handle success
     if(response.data.status){
       location.href="http://localhost:5500/index.html"
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Correo y/o contraseña incorrectos!',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#1b63e9',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        footer: '<a href="">¿Has olvidado tu contraseña?</a>'
+      })
     }
-    console.log(response)
   })
   .catch(function (error) {
     // handle error
