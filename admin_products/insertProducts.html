@@ -105,14 +105,17 @@
     <section class="home">
 
         <div class="content">
-        <form id="form" enctype="multipart/form-data">
+        <form action="http://localhost:3000/uploadFoto" method="post" id="form" name="form" enctype="multipart/form-data">
             <label>Carga la imagen principal del producto<span>*</span>
             </label><br>
             <input type="file" name="file" id="file" required/><br>
             <label>Vista previa:</label><br>
             <div class="imageView">
                 <img id="img"/><br><br>
-            </div><br>
+            </div>
+        </form>
+        <br>
+        <form id="myform">
 
             <label for="name">Escribe el nombre del producto <span>*</span></label><br>
             <input id="name" type="text" name="name" required><br><br>
@@ -167,6 +170,71 @@
 
         </div>
     </section>
+    <!-- <section class="home">
+
+        <div class="content">
+        <form id="form" enctype="multipart/form-data">
+            <label>Carga la imagen principal del producto<span>*</span>
+            </label><br>
+            <input type="file" name="file" id="file" required/><br>
+            <label>Vista previa:</label><br>
+            <div class="imageView">
+                <img id="img"/><br><br>
+            </div><br>
+
+            <label for="name">Escribe el nombre del producto <span>*</span></label><br>
+            <input id="name" type="text" name="name" required><br><br>
+
+            <label for="description">Escribe la descripción del producto <span>*</span></label><br>
+            <textarea id="description" name="description" required></textarea>
+            <br><br>
+
+            <label for="features">Escribe las características del producto <span>*</span></label><br>
+            <input id="features" type="text" name="features" required>
+            
+            <table id="table-create" class="features-table" name="features">
+                <tr>
+                    <td><input id="attribute1" class="property" type=text name=property1[] placeholder="Ejemplo: Procesador" required></td>
+                    <td><input id="attribute2" class="specification" type=text name=specification2[] placeholder="Ejemplo: Intel Core i5-1135g7" required></td>
+                </tr>
+            </table><br>
+            <button id="create-rows" onclick="addRow()"><i class="bx bx-down-arrow"></i></button>
+            <button id="delete-rows" onclick="dropRow()"><i class="bx bx-up-arrow"></i></button>
+            
+            <br><br>
+            <label for="price">Escribe el precio del producto <span>*</span></label><br>
+            <input id="price" type="text" name="price" class="price" required><br><br>
+
+            <label for="price">Escribe la cantidad de productos disponibles <span>*</span></label><br>
+            <input id="quantity" type="number" name="quantity" class="price" required><br><br>
+            
+            <label for="categories">Selecciona una categoría <span>*</span></label><br>
+            <select name="categories" id="categories" required>
+                <option value="">...</option>
+                <option value="Hogar">Muebles</option>
+                <option value="Salas">Salas</option>
+                <option value="Comedores">Comedores</option>
+                <option value="Camas">Camas</option>
+                <option value="Laptops">Laptops</option>
+                <option value="Pantallas">Pantallas</option>
+                <option value="Celulares">Celulares</option>
+                <option value="Electrodomésticos">Electrodomésticos</option>
+            </select><br><br>
+            <button class="btnSave" id="btnSave" onclick="insert()">Publicar producto</button><br><br>
+        </form>
+        
+             <label>Carga más imagenes del producto <span>*</span>
+            </label><br>
+            <div class="drop-area">
+                <h2>Arrastra y suelta los archivos aquí</h2>
+                <span class="span-dropzone">O</span>
+                <button>Selecciona tus archivos</button>
+                <input type="file" name="" id="input-file" hidden multiple>
+            </div>
+            <div id="preview"></div>
+
+        </div>
+    </section> -->
 
     <!--Script JS-->
     <script src="script.js"></script>

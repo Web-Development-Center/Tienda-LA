@@ -20,6 +20,11 @@ document.getElementById('form')
    event.preventDefault()
  })
 
+document.getElementById('myform')
+ .addEventListener('submit', function(event) {
+   event.preventDefault()
+ })
+
 axios.get('http://localhost:3000/upload')
   .then(function (response) {
     // handle success
@@ -172,8 +177,16 @@ axios.get('http://localhost:3000/upload')
     }
     
     console.log(image)
-    axios.post('http://localhost:3000/upload', product)
-    axios.post('http://localhost:3000/uploadFoto', image)
+    if(image){
+      axios.post('http://localhost:3000/upload', product).then(function (response) {
+      }).finally(function (params) {
+        
+        let form = document.getElementById("form")
+        form.submit()
+      })
+    }else{
+      alert("¡Debes agregar una imagen al producto!")
+    }
   }  
 /* function insert(){
     let name = document.getElementById('name').value
