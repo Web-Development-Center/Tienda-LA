@@ -19,3 +19,16 @@ btnSendMessage.addEventListener("click", function(evento){
   axios.post('http://localhost:3000/cantidad', cantidad)
     
 })
+
+
+let carrito = [];
+const DOMitems = document.querySelector('#items');
+const DOMcarrito = document.querySelector('#carrito');
+const DOMtotal = document.querySelector('#total');
+const DOMboton_eliminar = document.querySelector('#boton_eliminar');
+
+function anyadirProductoAlCarrito(evento) {
+  // Anyadimos el Nodo a nuestro carrito
+  carrito.push(evento.target.getAttribute('marcador'))
+  // Actualizamos el carrito 
+  renderizarCarrito();
