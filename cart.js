@@ -10,14 +10,11 @@ axios.get('http://localhost:3000/carrito')
   })
 
 
-let btnSendMessage = document.getElementById("btnSendMessage")
-btnSendMessage.addEventListener("click", function(evento){
-  let cantidad = document.getElementById('quantity').value
+let agregar = document.getElementsByName('AgregarCarrito');
+agregar.addEventListener('click',function(){
+  let agregarCarrito = true
 
-  console.log(cantidad)
-
-  axios.post('http://localhost:3000/cantidad', cantidad)
-    
+  axios.post('http://localhost:3000/carrito',cart)
 })
 
 
