@@ -1,5 +1,5 @@
 //INPUTS FROM cart.js
-axios.get('http://10.10.40.145:3000/cart')
+axios.get('http://localhost:3000/cart')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -16,6 +16,6 @@ btnSendMessage.addEventListener("click", function(evento){
 
   console.log(cantidad)
 
-  axios.post('http://10.10.40.145:3000/cantidad', cantidad)
+  axios.post('http://localhost:3000/cantidad', cantidad)
     
 })

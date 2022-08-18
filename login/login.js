@@ -3,7 +3,7 @@ document.getElementById('form').addEventListener('submit', function(evento){
 })
 
 // Make a request for a user with a given ID
-axios.get('http://10.10.40.145:3000/login')
+axios.get('http://localhost:3000/login')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -25,5 +25,25 @@ btnIniciarSesion.addEventListener("click", function(evento){
     contraseña_login: contraseña_login
   }
   
-  axios.post('http://10.10.40.145:3000/login', login)
+  axios.post('http://localhost:3000/login', login).then(function (response) {
+    // handle success
+    if(response.data.status){
+      location.href="http://localhost:5500/index.html"
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Correo y/o contraseña incorrectos!',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#1b63e9',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        footer: '<a href="">¿Has olvidado tu contraseña?</a>'
+      })
+    }
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
 })

@@ -246,7 +246,7 @@ function roomImg(obj){
   });    
 }
 
-axios.get('http://10.10.40.145:3000/products')
+axios.get('http://localhost:3000/products')
   .then(function (response) {
     // handle success
     mostrarProductos(response.data)
@@ -269,7 +269,7 @@ function mostrarProductos(productos){
 													<div class="single-product">
 														<div class="product-img">
 															<a href="product-details.html">
-																<img class="default-img" src="${prod.images}" alt="#">
+																<img class="default-img" src="http://localhost:3000/uploadFoto/${prod.imagen}" alt="#">
 															</a>
 															<div class="button-head">
 																<div class="product-action">
@@ -294,4 +294,3 @@ function mostrarProductos(productos){
       contenedorDiv.appendChild(productoActual)
   })
 }
-

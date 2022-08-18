@@ -3,10 +3,11 @@ document.getElementById('form2').addEventListener('submit', function(evento){
 })
 
 // Make a request for a user with a given ID
-axios.get('http://10.10.40.145:3000/register')
+axios.get('http://localhost:3000/register')
   .then(function (response) {
     // handle success
     console.log(response);
+    
   })
   .catch(function (error) {
     // handle error
@@ -30,6 +31,44 @@ btnRegistrarse.addEventListener("click", function(evento){
     confirmar_contraseña: confirmar_contraseña
   }
 
-  axios.post('http://10.10.40.145:3000/register', registro)
-    
+
+  axios.post('http://localhost:3000/register', registro).then(function (response) {
+    // handle success
+    if(response.data.status == false){
+      Swal.fire({
+        icon: 'warning',
+        text: '¡Ya existe una cuenta con este correo!',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#1b63e9'
+      })
+    }else if(response.data.password == false){
+      Swal.fire({
+        icon: 'warning',
+        text: '¡Las contraseñas no coinciden!',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#1b63e9'
+      })
+    }else{
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: '¡Registro existoso!'
+      })
+    }
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
 })

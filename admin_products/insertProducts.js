@@ -20,7 +20,12 @@ document.getElementById('form')
    event.preventDefault()
  })
 
-axios.get('http://10.10.40.145:3000/upload')
+document.getElementById('myform')
+ .addEventListener('submit', function(event) {
+   event.preventDefault()
+ })
+
+axios.get('http://localhost:3000/upload')
   .then(function (response) {
     // handle success
     console.log(response)
@@ -135,7 +140,7 @@ axios.get('http://10.10.40.145:3000/upload')
     formData.append("file", file)
 
     try{
-      const response = await fetch("http://10.10.40.145:3000/upload", {
+      const response = await fetch("http://localhost:3000/upload", {
         method: "POST",
         body: formData
       })
@@ -172,8 +177,16 @@ axios.get('http://10.10.40.145:3000/upload')
     }
     
     console.log(image)
-    axios.post('http://10.10.40.145:3000/upload', product)
-    axios.post('http://10.10.40.145:3000/uploadFoto', image)
+    if(image){
+      axios.post('http://localhost:3000/upload', product).then(function (response) {
+      }).finally(function (params) {
+        
+        let form = document.getElementById("form")
+        form.submit()
+      })
+    }else{
+      alert("¡Debes agregar una imagen al producto!")
+    }
   }  
 /* function insert(){
     let name = document.getElementById('name').value
@@ -214,7 +227,7 @@ axios.get('http://10.10.40.145:3000/upload')
         array: [aArray[i][j]],
         price: price
     }
-    axios.post('http://10.10.40.145:3000/insert', product)
+    axios.post('http://localhost:3000/insert', product)
     console.log(product.name)
     console.log(product.description)
     console.log(product.array)
