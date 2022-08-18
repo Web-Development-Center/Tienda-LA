@@ -1,5 +1,5 @@
 //INPUTS FROM cart.js
-axios.get('http://localhost:3000/cart')
+axios.get('http://localhost:3000/carrito')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -21,14 +21,4 @@ btnSendMessage.addEventListener("click", function(evento){
 })
 
 
-let carrito = [];
-const DOMitems = document.querySelector('#items');
-const DOMcarrito = document.querySelector('#carrito');
-const DOMtotal = document.querySelector('#total');
-const DOMboton_eliminar = document.querySelector('#boton_eliminar');
 
-function anyadirProductoAlCarrito(evento) {
-  // Anyadimos el Nodo a nuestro carrito
-  carrito.push(evento.target.getAttribute('marcador'))
-  // Actualizamos el carrito 
-  renderizarCarrito();
