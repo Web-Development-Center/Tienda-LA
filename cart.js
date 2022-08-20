@@ -10,12 +10,5 @@ axios.get('http://localhost:3000/carrito')
   })
 
 
-let agregar = document.getElementById('AgregarCarrito');
-agregar.addEventListener('click',function(){
-  let agregarCarrito = true
-
-  axios.post('http://localhost:3000/carrito',cart)
-})
-
 
 
