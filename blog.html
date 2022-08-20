@@ -207,7 +207,7 @@
 										<img src="https://via.placeholder.com/950x460" alt="#">
 									</div>
 									<div class="blog-detail">
-										<h2 class="blog-title">What are the secrets to start- up success?</h2>
+										<h2 class="blog-title">Escribe tus pensamientos</h2>
 										<div class="blog-meta">
 											<span class="author"><a href="#"><i class="fa fa-user"></i>By Admin</a><a href="#"><i class="fa fa-calendar"></i>Dec 24, 2018</a><a href="#"><i class="fa fa-comments"></i>Comment (15)</a></span>
 										</div>
@@ -240,7 +240,7 @@
 									</div>
 								</div>
 								<div class="col-12">
-									<div class="comments">
+									<div class="comments" id ="comentarios">
 										<h3 class="comment-title">Comments (3)</h3>
 										<!-- Single Comment -->
 										<div class="single-comment">
@@ -285,29 +285,17 @@
 										<div class="reply-head">
 											<h2 class="reply-title">Leave a Comment</h2>
 											<!-- Comment Form -->
-											<form class="form" action="#">
+											<form class="form" id="form">
 												<div class="row">
-													<div class="col-lg-6 col-md-6 col-12">
-														<div class="form-group">
-															<label>Your Name<span>*</span></label>
-															<input type="text" name="name" placeholder="" required="required">
-														</div>
-													</div>
-													<div class="col-lg-6 col-md-6 col-12">
-														<div class="form-group">
-															<label>Your Email<span>*</span></label>
-															<input type="email" name="email" placeholder="" required="required">
-														</div>
-													</div>
 													<div class="col-12">
 														<div class="form-group">
-															<label>Your Message<span>*</span></label>
-															<textarea name="message" placeholder=""></textarea>
+															<label>Tu mensaje<span>*</span></label>
+															<textarea id="mensaje" name="message" placeholder=""></textarea>
 														</div>
 													</div>
 													<div class="col-12">
 														<div class="form-group button">
-															<button type="submit" class="btn">Post comment</button>
+															<button onclick="guardarMensaje()" type="submit" class="btn">Publicar comentario</button>
 														</div>
 													</div>
 												</div>
@@ -511,5 +499,6 @@
 	<script src="js/easing.js"></script>
 	<!-- Active JS -->
 	<script src="js/active.js"></script>
+	<script src="blog.js"></script>
 </body>
 </html>
