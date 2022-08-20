@@ -28,11 +28,11 @@ document.getElementById('myform')
 axios.get('http://localhost:3000/upload')
   .then(function (response) {
     // handle success
-    console.log(response)
+    
   })
   .catch(function (error) {
     // handle error
-    console.log(error)
+    
   })
 
   let archivo = document.getElementById("file")
@@ -159,6 +159,7 @@ axios.get('http://localhost:3000/upload')
   } */
 
   function insert(){
+
     let name = document.getElementById('name').value
     let description = document.getElementById('description').value
     let features = document.getElementById('features').value
@@ -173,16 +174,45 @@ axios.get('http://localhost:3000/upload')
         features: features,
         price: price,
         quantity: quantity,
-        category: category
+        category: category,
     }
     
     console.log(image)
     if(image){
+
       axios.post('http://localhost:3000/upload', product).then(function (response) {
+      if(response.data.status){
+        Swal.fire({
+          title: '¡Buen trabajo!',
+          text: '¡Se ha publicado un nuevo producto!',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+          allowOutsideClick: false
+        })
+        
+        
+      }else{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: '¡Ocurrió un problema al publicar el producto!',
+        })
+      }
+      }).catch(function (error){
+
       }).finally(function (params) {
         
         let form = document.getElementById("form")
         form.submit()
+
+        document.getElementById('name').value = ""
+        document.getElementById('description').value = ""
+        document.getElementById('features').value = ""
+        document.getElementById('price').value = ""
+        document.getElementById('quantity').value = ""
+        document.getElementById('categories').value = ""
+        document.getElementById('file').value = ""
+        document.getElementById('img').value = ""
       })
     }else{
       alert("¡Debes agregar una imagen al producto!")
