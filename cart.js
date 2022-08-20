@@ -1,5 +1,5 @@
 //INPUTS FROM cart.js
-axios.get('http://localhost:3000/cart')
+axios.get('http://localhost:3000/carrito')
   .then(function (response) {
     // handle success
     console.log(response);
@@ -10,12 +10,5 @@ axios.get('http://localhost:3000/cart')
   })
 
 
-let btnSendMessage = document.getElementById("btnSendMessage")
-btnSendMessage.addEventListener("click", function(evento){
-  let cantidad = document.getElementById('quantity').value
 
-  console.log(cantidad)
 
-  axios.post('http://localhost:3000/cantidad', cantidad)
-    
-})
