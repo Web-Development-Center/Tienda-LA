@@ -1,3 +1,16 @@
+axios.get('http://localhost:3000/blog')
+  .then(function (response) {
+    // handle success
+    mostrarProductos(response.data)
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+    // always executed
+  });
+
 
   document.getElementById('form').addEventListener('submit',function(event){
     event.preventDefault()
@@ -9,7 +22,7 @@
    function guardarMensaje(){
     let mensaje = document.getElementById('mensaje').value
 
-    console.log(mensaje)
+    axios.post('http://localhost:3000/blog',mensaje)
    }
 
 
