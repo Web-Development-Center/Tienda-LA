@@ -266,10 +266,10 @@ function mostrarProductos(productos){
       productoActual.classList.add("col-xl-3", "col-lg-4", "col-md-4", "col-12")
 
       productoActual.innerHTML = `
-													<div id="${prod.idProducto}"class="single-product">
+													<div class="single-product border-mostpopular-section">
 														<div class="product-img">
 															<a href="product-details.html">
-																<img class="default-img" src="http://localhost:3000/uploadFoto/${prod.imgProducto}" alt="#">
+																<img class="default-img" src="http://localhost:3000/images/${prod.imgProducto}" alt="#">
 															</a>
 															<div class="button-head">
 																<div class="product-action">
@@ -278,7 +278,7 @@ function mostrarProductos(productos){
 																	<a data-toggle="modal" data-target="#exampleModal" href="#"><i class="fa fa-shopping-bag"></i><span>Comprar ahora</span></a>
 																</div>
 																<div class="product-action-2">
-																	<a title="Agregar al carrito" onclick="agregarAlCarrito()">Agregar al carrito</a>
+																	<a id="add${prod.idProducto}"title="Agregar al carrito">Agregar al carrito</a>
 																</div>
 															</div>
 														</div>
@@ -292,5 +292,20 @@ function mostrarProductos(productos){
       `
       
       contenedorDiv.appendChild(productoActual)
+
+      const botonAgregar = document.getElementById(`add${prod.idProducto}`)
+      botonAgregar.addEventListener("click", () => {
+        let producto = {idProducto: prod.idProducto}
+        console.log(producto)
+        axios.post('http://localhost:3000/carrito', producto)
+      })
+      /* function agregarAlCarrito(idProducto){
+        const producto = productos.find((prod) => prod.idProducto === idProducto) 
+        axios.post()
+      } */
   })
 }
+
+
+
+
