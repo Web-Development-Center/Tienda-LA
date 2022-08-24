@@ -299,10 +299,6 @@ function mostrarProductos(productos){
         console.log(producto)
         axios.post('http://localhost:3000/carrito', producto)
       })
-      /* function agregarAlCarrito(idProducto){
-        const producto = productos.find((prod) => prod.idProducto === idProducto) 
-        axios.post()
-      } */
   })
 }
 
