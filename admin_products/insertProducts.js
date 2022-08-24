@@ -189,8 +189,6 @@ axios.get('http://localhost:3000/upload')
           confirmButtonText: 'Aceptar',
           allowOutsideClick: false
         })
-        
-        
       }else{
         Swal.fire({
           icon: 'error',
@@ -212,7 +210,7 @@ axios.get('http://localhost:3000/upload')
         document.getElementById('quantity').value = ""
         document.getElementById('categories').value = ""
         document.getElementById('file').value = ""
-        document.getElementById('img').value = ""
+        document.getElementById('img').src = ""
       })
     }else{
       alert("¡Debes agregar una imagen al producto!")
