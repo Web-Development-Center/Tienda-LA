@@ -114,9 +114,7 @@
 .header.shop .nav .dropdown li {
 	display:block;
 }
-.hero-slider {
-	height: 416px;
-}
+
 .hero-slider .hero-text {
 	margin-top: 80px;
 }
@@ -1252,27 +1250,7 @@
 .header.shop .nav li .new {
 	display:none !important;
 }
-.hero-slider {
-	height: 350px;
-}
-.hero-slider .hero-text {
-	margin-top: 60px;
-}
-.hero-slider .hero-text h1 {
-	font-size: 30px;
-	margin-bottom: 0px;
-}
-.hero-slider .hero-text h1 span {
-	font-size: 15px;
-	margin-bottom: 0;
-}
-.hero-slider .hero-text p {
-	color: #333;
-	margin-bottom: 28px;
-}
-.hero-slider .hero-text .btn {
-	padding: 10px 25px;
-}
+
 .hero-area3 .big-content .inner {
 	padding:30px;
 }
