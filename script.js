@@ -266,14 +266,15 @@ function mostrarProductos(productos){
       productoActual.classList.add("col-xl-3", "col-lg-4", "col-md-4", "col-12")
 
       productoActual.innerHTML = `
-													<div class="single-product border-mostpopular-section">
+
+                          <div class="single-product">
 														<div class="product-img">
 															<a href="product-details.html">
 																<img class="default-img" src="http://localhost:3000/images/${prod.imgProducto}" alt="#">
-															</a>
+                                ${prod.descuento ? `<span class="out-of-stock">-${prod.descuento}%</span>` : ``}
+                              </a>
 															<div class="button-head">
 																<div class="product-action">
-																	<a data-toggle="modal" data-target="#exampleModal" href="#"><i class=" ti-eye"></i><span>Ver detalles</span></a>
 																	<a href="#"><i class=" ti-heart "></i><span>Agregar a favoritos</span></a>
 																	<a data-toggle="modal" data-target="#exampleModal" href="#"><i class="fa fa-shopping-bag"></i><span>Comprar ahora</span></a>
 																</div>
@@ -285,7 +286,7 @@ function mostrarProductos(productos){
 														<div class="product-content">
 															<h3><a href="product-details.html">${prod.nombre}</a></h3>
 															<div class="product-price">
-																<span>$${prod.precioUnitario}</span>
+                              ${prod.descuento ? `<span class="old">$${prod.precioOriginal}</span>` : ``}<span>   $${prod.precioActual}</span>
 															</div>
 														</div>
 													</div>
