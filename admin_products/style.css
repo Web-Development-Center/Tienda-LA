@@ -405,6 +405,30 @@ textarea{
     width: 300px;
 }
 
+.home .content .radio{
+    width:13px;
+    height:13px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top:15px;
+    margin-bottom:20px;
+}
+.home .content .label-radio{
+    margin-right: 30px;
+}
+
+body.dark .home .content .radio{
+    width:13px;
+    height:13px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top:15px;
+    margin-bottom:20px;
+}
+body.dark .home .content .label-radio{
+    margin-right: 30px;
+}
+
 .home .content button .create-rows,
 .home .content button .delete-rows{
     width: 30px;

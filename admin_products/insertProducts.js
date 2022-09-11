@@ -37,23 +37,105 @@ axios.get('http://localhost:3000/upload')
 
   let archivo = document.getElementById("file")
   let image = document.getElementById("img")
-
+  
   // Escuchar cuando cambie
   archivo.addEventListener("change", () => {
-  // Los archivos seleccionados, pueden ser muchos o uno
-  let archivos = archivo.files;
+    // Los archivos seleccionados, pueden ser muchos o uno
+    let archivos = archivo.files;
+    // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+    let primerArchivo = archivos[0]
+    
   // Si no hay archivos salimos de la función y quitamos la imagen
   if (!archivos || !archivos.length) {
     image.src = "";
     return;
   }
-  // Ahora tomamos el primer archivo, el cual vamos a previsualizar
-  let primerArchivo = archivos[0];
   // Lo convertimos a un objeto de tipo objectURL
   let objectURL = URL.createObjectURL(primerArchivo);
   // Y a la fuente de la imagen le ponemos el objectURL
   image.src = objectURL;
 })
+
+function aplicaDescuento(){
+  let div = document.getElementById('div-des')
+  let div_single = document.createElement('div')
+  div_single.setAttribute('id', 'descuento-div')
+  div_single.innerHTML = `
+  <label id="labelDescuento"for="discount">Escribe el descuento del producto <span>*</span></label><br>
+  <input id="discount" type="text" name="discount" class="price" required><br><br>
+  `
+  div.appendChild(div_single)
+}
+function noAplicaDescuento(){
+  document.getElementById('descuento-div').remove()
+}
+
+function insert(){
+
+  let name = document.getElementById('name').value
+  let description = document.getElementById('description').value
+  let features = document.getElementById('features').value
+  let price = document.getElementById('price').value
+  let discount = document.getElementById('discount').value
+  let quantity = document.getElementById('quantity').value
+  let category = document.getElementById('categories').value
+  let image = document.getElementById('file').value
+  
+  if(image){
+  let archivo = document.getElementById('file')
+  let archivos = archivo.files
+  let primerArchivo = archivos[0]
+  let nameImg = primerArchivo.name
+
+  let product = {
+      name:name,
+      description: description,
+      features: features,
+      price: price,
+      discount: discount,
+      quantity: quantity,
+      category: category,
+      imgName: nameImg
+  }
+
+    axios.post('http://localhost:3000/upload', product).then(function (response) {
+    if(response.data.status){
+      Swal.fire({
+        title: '¡Buen trabajo!',
+        text: '¡Se ha publicado un nuevo producto!',
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false
+      })
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '¡Ocurrió un problema al publicar el producto!',
+      })
+    }
+    }).catch(function (error){
+
+    }).finally(function (params) {
+      
+      let form = document.getElementById("form")
+      form.submit()
+
+      document.getElementById('name').value = ""
+      document.getElementById('description').value = ""
+      document.getElementById('features').value = ""
+      document.getElementById('price').value = ""
+      document.getElementById('discount').value = ""
+      document.getElementById('quantity').value = ""
+      document.getElementById('categories').value = ""
+      document.getElementById('file').value = ""
+      document.getElementById('img').src = ""
+      document.getElementById('no').checked = true
+    })
+  }else{
+    alert("¡Debes agregar una imagen al producto!")
+  }
+}
 
   /* const dropArea = document.querySelector(".drop-area")
   const dragText = dropArea.querySelector("h2")
@@ -158,64 +240,7 @@ axios.get('http://localhost:3000/upload')
     }
   } */
 
-  function insert(){
-
-    let name = document.getElementById('name').value
-    let description = document.getElementById('description').value
-    let features = document.getElementById('features').value
-    let price = document.getElementById('price').value
-    let quantity = document.getElementById('quantity').value
-    let category = document.getElementById('categories').value
-    let image = document.getElementById('file').value
-
-    let product = {
-        name:name,
-        description: description,
-        features: features,
-        price: price,
-        quantity: quantity,
-        category: category,
-    }
     
-    console.log(image)
-    if(image){
-
-      axios.post('http://localhost:3000/upload', product).then(function (response) {
-      if(response.data.status){
-        Swal.fire({
-          title: '¡Buen trabajo!',
-          text: '¡Se ha publicado un nuevo producto!',
-          icon: 'success',
-          confirmButtonText: 'Aceptar',
-          allowOutsideClick: false
-        })
-      }else{
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: '¡Ocurrió un problema al publicar el producto!',
-        })
-      }
-      }).catch(function (error){
-
-      }).finally(function (params) {
-        
-        let form = document.getElementById("form")
-        form.submit()
-
-        document.getElementById('name').value = ""
-        document.getElementById('description').value = ""
-        document.getElementById('features').value = ""
-        document.getElementById('price').value = ""
-        document.getElementById('quantity').value = ""
-        document.getElementById('categories').value = ""
-        document.getElementById('file').value = ""
-        document.getElementById('img').src = ""
-      })
-    }else{
-      alert("¡Debes agregar una imagen al producto!")
-    }
-  }  
 /* function insert(){
     let name = document.getElementById('name').value
     let description = document.getElementById('description').value
